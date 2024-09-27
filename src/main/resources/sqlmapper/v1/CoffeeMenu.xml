@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hello.sailing.v1.dao.MenuDao">
+
+    <!--조회-->
+    <select id="doList" resultType="java.util.Map">
+        select no,
+               coffee,
+               kind,
+               price,
+               date_format(reg_day,'%Y,%m,%d')as reg_day,
+               date_format(mod_day,'%y,%m,%d')as mod_day
+        from coffeemenu;
+    </select>
+</mapper>
