@@ -1,6 +1,7 @@
 package hello.sailing.v1.controller;
 
 import hello.sailing.v1.service.MenuSvc;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/v1")
+@Log4j2
 public class MenuCon {
 
     @Autowired
@@ -43,6 +45,31 @@ public class MenuCon {
                                @RequestParam("price") String strPrice)
         {
         int i = menuSvc.doInsert(strCoffee,strKind,strPrice);
-        return "/v1/menu/menu_ins";
+
+        return "redirect:/v1/menu";
     }
+
+    @GetMapping("/menu_del")
+    public String doDelete(@RequestParam("no") String strNo){
+        int i = menuSvc.doDelete(strNo);
+        return "redirect:/v1/menu";
+    }
+
+    @GetMapping("/menu_up")
+    public String doUpdate(Model model, @RequestParam("no") String strNo){
+            Map<String, Object> map = menuSvc.doListOne(strNo);
+            model.addAttribute("map",map);
+            return "/v1/menu/menu_up";
+    }
+
+    @PostMapping("/menu_up")
+    public String doUpdatePost(@RequestParam("no") String strNo,
+                               @RequestParam("coffee") String strCoffee,
+                               @RequestParam("kind") String strKind,
+                               @RequestParam("price") String strPrice)
+    {
+        int i = menuSvc.doUpdate(strNo,strCoffee,strKind,strPrice);
+        return "redirect:/v1/menu";
+    }
+
 }

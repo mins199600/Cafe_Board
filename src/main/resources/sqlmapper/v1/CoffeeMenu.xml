@@ -12,24 +12,36 @@
                price,
                date_format(reg_day,'%Y,%m,%d')as reg_day,
                date_format(mod_day,'%y,%m,%d')as mod_day
-        from coffee_menu;
+        from coffee_menu
     </select>
+
+    <!--메뉴조회-->
+    <select id="doListOne" resultType="java.util.Map">
+        select no,
+        coffee,
+        kind,
+        price,
+        date_format(reg_day,'%Y,%m,%d')as reg_day,
+        date_format(mod_day,'%y,%m,%d')as mod_day
+        from coffee_menu
+        where no = cast(#{strNo} as Integer)
+    </select>
+
 
     <insert id="doInsert">
         Insert Into coffee_menu(coffee,kind,price)
-        values(#{strCoffee},#{strKind},#{strPrice})
+        values(#{strCoffee},#{strKind},cast(#{strPrice} as Integer))
     </insert>
 
-   <!-- <update id="updateAuthor">
-        update Author set
-        username = #{username},
-        password = #{password},
-        email = #{email},
-        bio = #{bio}
-        where id = #{id}
+    <update id="doUpdate">
+        update coffee_menu set
+            coffee = #{strCoffee},
+            kind = #{strKind},
+            price = cast(#{strPrice} as Integer)
+        where no = cast(#{strNo} as Integer)
     </update>
 
-    <delete id="deleteAuthor">
-        delete from Author where id = #{id}
-    </delete>-->
+    <delete id="doDelete">
+        Delete from coffee_menu where no = cast(#{strNo} as Integer)
+    </delete>
 </mapper>

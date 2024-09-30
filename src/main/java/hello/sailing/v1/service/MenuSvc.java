@@ -69,4 +69,25 @@ public class MenuSvc {
         int i = menuDao.doInsert(strCoffee,strkind,strPrice);
         return i;
     }
-}
+
+    public int doDelete(String strNo) {
+        int i = menuDao.doDelete(strNo);
+        return i;
+    }
+    //one row 조회
+    public Map<String, Object> doListOne(String strNo) {
+
+        Map<String, Object> map = menuDao.doListOne(strNo);
+
+        return map;
+    }
+
+    //수정
+    public int doUpdate(String strNo,String strCoffee, String strKind, String strPrice) {
+        int i = menuDao.doUpdate(strNo, strCoffee, strKind, strPrice);
+        return i;
+    }
+
+
+    }
+
