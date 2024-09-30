@@ -89,5 +89,10 @@ public class MenuSvc {
     }
 
 
+    public List<Map<String, Object>> doSearch(String strStartDate, String strEndDate, String strCoffee, String strKind) {
+
+        List<Map<String, Object>> list = menuDao.doSearch(strStartDate, strEndDate, strCoffee, strKind);
+        return list;
     }
+}
 

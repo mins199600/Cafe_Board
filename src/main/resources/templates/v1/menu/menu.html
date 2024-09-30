@@ -26,20 +26,20 @@
   <div id="search" style="height: 150px;padding: 15px; font-size: small; width: 90%; margin-left: auto;  margin-right: auto;">
     <h3>[ Coffee menu Management <span style="font-size:30px;">&#9749;</span> ] <th:block th:text="${hello}"></th:block> </h3>
 
-    <form name="fm_menu" autocomplete="on">
+    <form name="fm_menu" autocomplete="on" action="/v1/menu_search" method="post">
       <fieldset>
 
         <legend> [검색조건] </legend>
         <label>등록기간</label><input type="date" id="start_date" name="start_date" min="2020-01-01" max="2023-12-31">
         - <input type="date" id="end_date" name="end_date" min="2020-01-01" max="2023-12-31">
         &nbsp;&nbsp;
-        <label>메뉴명</label> <input type="text" id="name" name="name">
+        <label>메뉴명</label> <input type="text" id="coffee" name="coffee">
         &nbsp;&nbsp;
         <label>종류</label> <select id="kind" name="kind">
         <option value="ALL">전체</option>
-        <option value="1.커피">1.커피</option>
-        <option value="2.에이드">2.에이드</option>
-        <option value="3.스무디">3.스무디</option>
+        <option value="커피">커피</option>
+        <option value="논커피">논커피</option>
+        <option value="에이드">에이드</option>
       </select>
 
         &nbsp;&nbsp;<input type="submit" value="조회" style="width: 80px;height: 30px;font-weight: bold; font-size: medium">
@@ -95,6 +95,14 @@
   <!--    https://www.w3schools.com/html/html_emojis.asp   -->
   <h4>[Footer] <span style="font-size:30px;">&#9973;</span> Spring boot 항해 ~ with Me</h4>
 </div>
+
+<script>
+  /*현재 시간 날짜에 적용시키기*/
+  const now = new Date(); //현재 날짜 및 시간
+  const time7 = new Date(now.setDate(now.getDate() - 100)); //기간설정
+  document.getElementById("start_date").value = time7.toISOString().slice(0,10);
+  document.getElementById("end_date").value = new Date().toISOString().slice(0,10);
+</script>
 
 </body>
 </html>

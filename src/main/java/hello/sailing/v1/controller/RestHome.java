@@ -9,7 +9,7 @@ public class RestHome {
     @GetMapping("v1/rest")
     public String doRest(){
 
-        String strHtml = "Hello Rsst Controller";
+        String strHtml = "Hello Rest Controller";
         return strHtml;
     }
 }
