@@ -64,4 +64,9 @@ public class MenuSvc {
 
         return list;
     }
+
+    public int doInsert(String strCoffee, String strkind, String strPrice) {
+        int i = menuDao.doInsert(strCoffee,strkind,strPrice);
+        return i;
+    }
 }

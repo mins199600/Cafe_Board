@@ -12,6 +12,24 @@
                price,
                date_format(reg_day,'%Y,%m,%d')as reg_day,
                date_format(mod_day,'%y,%m,%d')as mod_day
-        from coffeemenu;
+        from coffee_menu;
     </select>
+
+    <insert id="doInsert">
+        Insert Into coffee_menu(coffee,kind,price)
+        values(#{strCoffee},#{strKind},#{strPrice})
+    </insert>
+
+   <!-- <update id="updateAuthor">
+        update Author set
+        username = #{username},
+        password = #{password},
+        email = #{email},
+        bio = #{bio}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteAuthor">
+        delete from Author where id = #{id}
+    </delete>-->
 </mapper>

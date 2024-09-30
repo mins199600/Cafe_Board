@@ -8,4 +8,6 @@ import java.util.Map;
 public interface MenuDao {
 
     List<Map<String, Object>> doList();
+
+    int doInsert(String strCoffee, String strKind, String strPrice);
 }
