@@ -10,8 +10,8 @@
   <link rel="stylesheet" type="text/css" href="/css/coffee.css">
 
 </head>
-<body>
 
+<body>
 <!-- 헤더 위치 -->
 <div class="topnav">
   <a href="/v1/home">Home</a>
@@ -20,7 +20,7 @@
   <a href="/v1/member">고객정보</a>
 </div>
 
-
+<!--컨텐츠 위치-->
 <div id="main" style="font-size:large; text-align: center; ">
 
   <div id="search" style="height: 150px;padding: 15px; font-size: small; width: 90%; margin-left: auto;  margin-right: auto;">
@@ -30,8 +30,8 @@
       <fieldset>
 
         <legend> [검색조건] </legend>
-        <label>등록기간</label><input type="date" id="start_date" name="start_date" min="2020-01-01" max="2023-12-31">
-        - <input type="date" id="end_date" name="end_date" min="2020-01-01" max="2023-12-31">
+        <label>등록기간</label><input type="date" id="start_date" name="start_date" min="2024-01-01" max="2024-12-31">
+        - <input type="date" id="end_date" name="end_date" min="2024-01-01" max="2024-12-31">
         &nbsp;&nbsp;
         <label>메뉴명</label> <input type="text" id="coffee" name="coffee">
         &nbsp;&nbsp;
@@ -99,7 +99,7 @@
 <script>
   /*현재 시간 날짜에 적용시키기*/
   const now = new Date(); //현재 날짜 및 시간
-  const time7 = new Date(now.setDate(now.getDate() - 100)); //기간설정
+  const time7 = new Date(now.setDate(now.getDate() - 200)); //기간설정
   document.getElementById("start_date").value = time7.toISOString().slice(0,10);
   document.getElementById("end_date").value = new Date().toISOString().slice(0,10);
 </script>

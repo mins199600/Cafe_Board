@@ -5,7 +5,7 @@
 <mapper namespace="hello.sailing.v1.dao.MenuDao">
 
     <!--조회-->
-    <select id="doSearch" resultType="java.util.Map">
+    <select id="doList" resultType="java.util.Map">
         select no,
                coffee,
                kind,
@@ -13,26 +13,26 @@
             date_format(reg_day,'%Y,%m,%d') as reg_day,
             date_format(mod_day,'%y,%m,%d') as mod_day
         from coffee_menu
-        where 1=1
-        and reg_day >= date_format(#{strStartDate},'%Y%m%d')
-        and reg_day < date_add(date_format(#{strEndDate},'%Y%m%d'), interval 1 day)
-        <if test="strCoffee != 'ALL'">
-        and coffee like concat(#{strCoffee},'%')
-        </if>
-        <if test="strKind != 'ALL'">
-            and kind = #{strKind}
-        </if>
     </select>
 
     <!--검색에 의한 쿼리-->
-    <select id="doList" resultType="java.util.Map">
-    select no,
-    coffee,
-    kind,
-    price,
-    date_format(reg_day,'%Y,%m,%d')as reg_day,
-    date_format(mod_day,'%y,%m,%d')as mod_day
+    <select id="doSearch" resultType="java.util.Map">
+    select  no,
+            coffee,
+            kind,
+            price,
+        date_format(reg_day,'%Y,%m,%d')as reg_day,
+        date_format(mod_day,'%y,%m,%d')as mod_day
     from coffee_menu
+    where 1=1
+        and reg_day >= date_format( #{strStartDate}, '%Y,%m,%d')
+        and reg_day &lt; date_add(date_format(#{strEndDate}, '%Y,%m,%d'), interval +1 day)
+            <if test="strCoffee != 'ALL'">
+                and coffee like concat(#{strCoffee},'%')
+            </if>
+            <if test="strKind != 'ALL'">
+            and kind = #{strKind}
+            </if>
 </select>
 
     <!--메뉴조회-->
