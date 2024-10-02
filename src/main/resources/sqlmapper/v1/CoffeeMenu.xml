@@ -65,4 +65,20 @@
         Delete from coffee_menu where no = cast(#{strNo} as Integer)
     </delete>
 
+    <!--메뉴 가격 수정 입력-->
+    <update id="doUpdatePrice">
+        update coffee_menu set
+            price = cast(#{strPrice} as integer)
+        where no = cast(#{strNo} as integer)
+    </update>
+
+    <!--가격 로그 입력-->
+    <insert id="doInsertLog">
+        insert into log(coffee_no, price)
+        values( #{strNo}, cast(#{strPrice} as integer) )
+    </insert>
+
+
+
+
 </mapper>

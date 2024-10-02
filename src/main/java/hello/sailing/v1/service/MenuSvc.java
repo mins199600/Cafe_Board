@@ -94,5 +94,15 @@ public class MenuSvc {
         List<Map<String, Object>> list = menuDao.doSearch(strStartDate, strEndDate, strCoffee, strKind);
         return list;
     }
+
+    public int doUpdatePrice(String strNo, String strPrice) {
+        int int2 = menuDao.doUpdatePrice(strNo, strPrice);
+        return int2;
+    }
+    //가격변경 로그
+    public int doInsertLog(String strNo, String strPrice) {
+        int int1 = menuDao.doInsertLog(strNo, strPrice);
+        return int1;
+    }
 }
 

@@ -18,6 +18,10 @@ public interface MenuDao {
 
     //업데이트
     int doUpdate(String strNo, String strCoffee, String strKind, String strPrice);
-
     List<Map<String, Object>> doSearch(String strStartDate, String strEndDate, String strCoffee, String strKind);
+
+    //가격변경
+    int doUpdatePrice(String strNo, String strPrice);
+    //가격 변경 로그 입력
+    int doInsertLog(String strNo, String strPrice);
 }
