@@ -24,4 +24,8 @@ public interface MenuDao {
     int doUpdatePrice(String strNo, String strPrice);
     //가격 변경 로그 입력
     int doInsertLog(String strNo, String strPrice);
+
+    int doInsertLogOne(List<String> chkList, String strPrice);
+
+    int doUpdatePriceOne(List<String> chkList, String strPrice);
 }
