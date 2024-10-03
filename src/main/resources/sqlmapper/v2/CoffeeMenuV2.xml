@@ -5,7 +5,7 @@
 <mapper namespace="hello.sailing.v2.dao.MenuDaoV2">
 
     <!--조회-->
-    <select id="doList" resultType="java.util.Map">
+    <select id="doList" resultType="Map">
         select no,
                coffee,
                kind,

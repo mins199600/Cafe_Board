@@ -26,47 +26,8 @@ public class MenuSvcV2 {
         return list;
     }
 
-
-    public List<Map<String, Object>> dolistOld() {
-
-        List<Map<String, Object>> list = new ArrayList<>();
-
-        Map<String, Object> map = new HashMap<>();
-        map.put("No","1");
-        map.put("name","아이스아메리카노");
-        map.put("kind","커피");
-        map.put("price","2,000");
-        map.put("reg_day","2020.10.29");
-        map.put("mod_day","2021.10.29");
-        list.add(map);
-
-        Map<String, Object> map2 = new HashMap<>();
-
-        map2.put("No","2");
-        map2.put("name","아이스초코");
-        map2.put("kind","음료");
-        map2.put("price","4,000");
-        map2.put("reg_day","2020.10.29");
-        map2.put("mod_day","2021.10.29");
-        list.add(map2);
-
-        Map<String, Object> map3 = new HashMap<>();
-
-        map3.put("No","3");
-        map3.put("name","아이스불샷");
-        map3.put("kind","음료");
-        map3.put("price","4,500");
-        map3.put("reg_day","2020.10.29");
-        map3.put("mod_day","2021.10.29");
-        list.add(map3);
-
-        log.info(list);
-
-        return list;
-    }
-
-    public int doInsert(String strCoffee, String strkind, String strPrice) {
-        int i = menuDaoV2.doInsert(strCoffee,strkind,strPrice);
+    public int doInsert(String strCoffee, String strKind, String strPrice) {
+        int i = menuDaoV2.doInsert(strCoffee,strKind,strPrice);
         return i;
     }
 
