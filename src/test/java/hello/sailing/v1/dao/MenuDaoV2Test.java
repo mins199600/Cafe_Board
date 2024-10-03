@@ -10,7 +10,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class MenuDaoTest {
+class MenuDaoV2Test {
 
     @Autowired
     MenuDao menuDao;
