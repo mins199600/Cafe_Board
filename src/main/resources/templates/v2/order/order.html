@@ -28,15 +28,16 @@
 
         <form name="fm_order" autocomplete="on">
             <fieldset>
-                <legend> [검색조건] </legend>
-                <label>등록기간</label><input type="date" id="start_date" name="start_date" min="2020-01-01" max="2023-12-31">
-                - <input type="date" id="end_date" name="end_date" min="2020-01-01" max="2023-12-31">
-                &nbsp;&nbsp;
-                <label>메뉴명</label> <input type="text" id="menu" name="menu">
-                &nbsp;&nbsp;
-                <label>고객명</label> <input type="text" id="name" name="name">
+                <select>
+                    <legend> [검색조건] </legend>
+                    <label>등록기간</label><input type="date" id="start_date" name="start_date" min="2024-01-01" max="2024-12-31">
+                    - <input type="date" id="end_date" name="end_date" min="2024-01-01" max="2024-12-31">
+                    &nbsp;&nbsp;
+                    <label>메뉴명</label> <input type="text" id="menu" name="menu">
+                    &nbsp;&nbsp;
+                    <label>고객명</label> <input type="text" id="name" name="name">
 
-            </select>
+                </select>
 
                 &nbsp;&nbsp;<input type="submit" value="조회" style="width: 80px;height: 30px;font-weight: bold; font-size: medium">
 
@@ -57,6 +58,7 @@
             <th>주문번호</th>
             <th>커피No</th>
             <th>메뉴명</th>
+            <th>가격</th>
             <th>고객ID</th>
             <th>고객명</th>
             <th>주문일자</th>
@@ -66,34 +68,15 @@
 
         <tbody id="t_body">
         <!--- 데이타 출력 부분 -->
-        <tr class="tr_td">
-            <td>Chk</td>
-            <th>주문번호</th>
-            <td>커피No</td>
-            <td>메뉴명</td>
-            <td>고객ID</td>
-            <td>고객명</td>
-            <td>주문일자</td>
-        </tr>
-
-        <tr class="tr_td">
-            <td>Chk</td>
-            <th>주문번호</th>
-            <td>커피No</td>
-            <td>메뉴명</td>
-            <td>고객ID</td>
-            <td>고객명</td>
-            <td>주문일자</td>
-        </tr>
-
-        <tr class="tr_td">
-            <td>Chk</td>
-            <th>주문번호</th>
-            <td>커피No</td>
-            <td>메뉴명</td>
-            <td>고객ID</td>
-            <td>고객명</td>
-            <td>주문일자</td>
+        <tr th:each="prod : ${list}">
+            <td><input type="checkbox" name="chkOrderNo" th:value="${prod.getNo()}"></td>
+            <td th:text="${prod.getNo()}">주문번호</td>
+            <td th:text="${prod.getCoffee_no()}">커피No</td>
+            <td th:text="${prod.getCoffee()}">메뉴명</td>
+            <td th:text="${prod.getPrice()}">가격</td>
+            <td th:text="${prod.getCust_id()}">고객ID</td>
+            <td th:text="${prod.getName()}">고객명</td>
+            <td th:text="${prod.getReg_day()}">주문일자</td>
         </tr>
         </tbody>
     </table>
