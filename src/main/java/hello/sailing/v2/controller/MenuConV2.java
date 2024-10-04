@@ -1,14 +1,12 @@
 package hello.sailing.v2.controller;
 
 import hello.sailing.v2.service.MenuSvcV2;
+import hello.sailing.v2.vo.Coffee_menu;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -25,7 +23,7 @@ public class MenuConV2 {
     public String doMenu(Model model) {
 
         //Data 만들기, List, Map
-        List<Map<String, Object>> list = menuSvcV2.doList();
+        List<Coffee_menu> list = menuSvcV2.doList();
 
         //Data 송부
         model.addAttribute("list", list);
@@ -40,10 +38,8 @@ public class MenuConV2 {
     }
 
     @PostMapping("/menu_ins")
-    public String doInsertPost(@RequestParam("coffee") String strCoffee,
-                               @RequestParam("kind") String strKind,
-                               @RequestParam("price") String strPrice) {
-        int i = menuSvcV2.doInsert(strCoffee, strKind, strPrice);
+    public String doInsertPost(@ModelAttribute Coffee_menu coffeeMenu) {
+        int i = menuSvcV2.doInsert(coffeeMenu);
 
         return "redirect:/v2/menu";
     }
@@ -62,11 +58,8 @@ public class MenuConV2 {
     }
 
     @PostMapping("/menu_up")
-    public String doUpdatePost(@RequestParam("no") String strNo,
-                               @RequestParam("coffee") String strCoffee,
-                               @RequestParam("kind") String strKind,
-                               @RequestParam("price") String strPrice) {
-        int i = menuSvcV2.doUpdate(strNo, strCoffee, strKind, strPrice);
+    public String doUpdatePost(@ModelAttribute Coffee_menu coffeeMenu) {
+        int i = menuSvcV2.doUpdate(coffeeMenu);
         return "redirect:/v2/menu";
     }
 
@@ -78,7 +71,7 @@ public class MenuConV2 {
                            @RequestParam("kind") String strKind,
                            Model model
     ) {
-        List<Map<String, Object>> list = menuSvcV2.doSearch(strStartDate, strEndDate, strCoffee, strKind);
+        List<Coffee_menu> list = menuSvcV2.doSearch(strStartDate, strEndDate, strCoffee, strKind);
         model.addAttribute("list", list);
         return "/v2/menu/menu";
     }

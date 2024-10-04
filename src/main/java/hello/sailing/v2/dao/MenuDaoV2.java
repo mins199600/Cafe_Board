@@ -1,6 +1,8 @@
 package hello.sailing.v2.dao;
 
+import hello.sailing.v2.vo.Coffee_menu;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.List;
 import java.util.Map;
@@ -8,9 +10,9 @@ import java.util.Map;
 @Mapper
 public interface MenuDaoV2 {
 
-    List<Map<String, Object>> doList();
+    List<Coffee_menu> doList();
 
-    int doInsert(String strCoffee, String strKind, String strPrice);
+    int doInsert(@ModelAttribute Coffee_menu coffeeMenu);
 
     int doDelete(String strNo);
 
@@ -18,8 +20,10 @@ public interface MenuDaoV2 {
     Map<String, Object> doListOne(String strNo);
 
     //업데이트
-    int doUpdate(String strNo, String strCoffee, String strKind, String strPrice);
-    List<Map<String, Object>> doSearch(String strStartDate, String strEndDate, String strCoffee, String strKind);
+    int doUpdate(@ModelAttribute Coffee_menu coffeeMenu);
+
+    //가격검색
+    List<Coffee_menu> doSearch(String strStartDate, String strEndDate, String strCoffee, String strKind);
 
     //가격변경
     int doUpdatePrice(String strNo, String strPrice);

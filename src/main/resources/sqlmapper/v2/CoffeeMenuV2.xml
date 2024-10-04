@@ -5,7 +5,7 @@
 <mapper namespace="hello.sailing.v2.dao.MenuDaoV2">
 
     <!--조회-->
-    <select id="doList" resultType="Map">
+    <select id="doList" resultType="hello.sailing.v2.vo.Coffee_menu">
         select no,
                coffee,
                kind,
@@ -16,7 +16,7 @@
     </select>
 
     <!--검색에 의한 쿼리-->
-    <select id="doSearch" resultType="java.util.Map">
+    <select id="doSearch" resultType="hello.sailing.v2.vo.Coffee_menu">
     select  no,
             coffee,
             kind,
@@ -50,15 +50,15 @@
 
     <insert id="doInsert">
         Insert Into coffee_menu(coffee,kind,price)
-        values(#{strCoffee},#{strKind},cast(#{strPrice} as Integer))
+        values(#{coffee},#{kind},cast(#{price} as Integer))
     </insert>
 
     <update id="doUpdate">
         update coffee_menu set
-            coffee = #{strCoffee},
-            kind = #{strKind},
-            price = cast(#{strPrice} as Integer)
-        where no = cast(#{strNo} as Integer)
+            coffee = #{coffee},
+            kind = #{kind},
+            price = cast(#{price} as Integer)
+        where no = cast(#{no} as Integer)
     </update>
 
     <delete id="doDelete">

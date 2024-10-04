@@ -1,8 +1,10 @@
 package hello.sailing.v2.service;
 import hello.sailing.v2.dao.MenuDaoV2;
+import hello.sailing.v2.vo.Coffee_menu;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,17 +19,17 @@ public class MenuSvcV2 {
     MenuDaoV2 menuDaoV2;
 
     public MenuSvcV2() {
-        log.info("===== MenuSvc , 생성자 =====");
+        log.info("===== MenuSvc , V2 =====");
     }
 
-    public List<Map<String, Object>> doList() {
-        List<Map<String, Object>> list = menuDaoV2.doList();
+    public List<Coffee_menu> doList() {
+        List<Coffee_menu> list = menuDaoV2.doList();
         log.info(list);
         return list;
     }
 
-    public int doInsert(String strCoffee, String strKind, String strPrice) {
-        int i = menuDaoV2.doInsert(strCoffee,strKind,strPrice);
+    public int doInsert(@ModelAttribute Coffee_menu coffeeMenu) {
+        int i = menuDaoV2.doInsert(coffeeMenu);
         return i;
     }
 
@@ -44,15 +46,15 @@ public class MenuSvcV2 {
     }
 
     //수정
-    public int doUpdate(String strNo,String strCoffee, String strKind, String strPrice) {
-        int i = menuDaoV2.doUpdate(strNo, strCoffee, strKind, strPrice);
+    public int doUpdate(@ModelAttribute Coffee_menu coffeeMenu) {
+        int i = menuDaoV2.doUpdate(coffeeMenu);
         return i;
     }
 
 
-    public List<Map<String, Object>> doSearch(String strStartDate, String strEndDate, String strCoffee, String strKind) {
+    public List<Coffee_menu> doSearch(String strStartDate, String strEndDate, String strCoffee, String strKind) {
 
-        List<Map<String, Object>> list = menuDaoV2.doSearch(strStartDate, strEndDate, strCoffee, strKind);
+        List<Coffee_menu> list = menuDaoV2.doSearch(strStartDate, strEndDate, strCoffee, strKind);
         return list;
     }
 
