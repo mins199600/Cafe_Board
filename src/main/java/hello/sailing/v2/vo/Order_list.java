@@ -11,5 +11,4 @@ public class Order_list {
     private String cust_id;
     private String name;
     private String reg_day;
-
 }

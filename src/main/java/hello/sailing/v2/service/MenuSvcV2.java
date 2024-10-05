@@ -5,6 +5,7 @@ import hello.sailing.v2.vo.Order_list;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.List;
@@ -75,6 +76,13 @@ public class MenuSvcV2 {
     public int doUpdatePriceOne(List<String> chkList, String strPrice) {
         int int2 = menuDaoV2.doUpdatePriceOne(chkList, strPrice);
         return int2;
+    }
+    @Transactional
+    public int doUpdateInsert(List<String> chkList, String strPrice) {
+        log.info("=======================================");
+        int int1 = menuDaoV2.doInsertLogOne(chkList, strPrice);
+        int int2 = menuDaoV2.doUpdatePriceOne(chkList, strPrice);
+        return int1;
     }
 }
 
