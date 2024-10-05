@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,14 +16,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
+@RequestMapping("/v2")
 @Log4j2
 public class OrderConV2 {
 
     @Autowired
     OrderSvcV2 orderSvcV2;
 
-    @RequestMapping("/v2/order")
+    @RequestMapping("/order")
     public String doOrder(Model model){
+
         //Data 만들기, List, Map
         List<Order_list> list = orderSvcV2.doList();
 
@@ -41,11 +44,12 @@ public class OrderConV2 {
                             Model model
 
     ){
-
-        log.info("strStartDate :"+strStartDate);
-
+        log.info("strStartDate :"+ strStartDate);
+        log.info("strEndDate :"+ strEndDate);
+        log.info("strCoffee : " + strCoffee);
+        log.info("strName : " + strName);
+        log.info("model : " + model.toString());
         List<Order_list> list = orderSvcV2.doSearch(strStartDate,strEndDate, strCoffee,strName );
-
         model.addAttribute("list", list);
 
         return "/v2/order/order";

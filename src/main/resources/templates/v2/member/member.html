@@ -26,11 +26,11 @@
     <div id="search" style="height: 150px;padding: 15px; font-size: small; width: 90%; margin-left: auto;  margin-right: auto;">
         <h3>[ Member Info <span style="font-size:30px;">&#128699;</span> ]</h3>
 
-        <form name="fm_member" autocomplete="on">
+        <form name="fm_member" autocomplete="on" action="/v2/member_search" method="post">
             <fieldset>
                 <legend> [검색조건] </legend>
-                <label>등록기간</label><input type="date" id="start_date" name="start_date" min="2020-01-01" max="2023-12-31">
-                - <input type="date" id="end_date" name="end_date" min="2020-01-01" max="2023-12-31">
+                <label>등록기간</label><input type="date" id="start_date" name="start_date" min="2024-01-01" max="2024-12-31">
+                - <input type="date" id="end_date" name="end_date" min="2024-01-01" max="2024-12-31">
                 &nbsp;&nbsp;
                 <label>고객명</label> <input type="text" id="name" name="name">
 
@@ -38,10 +38,7 @@
                 &nbsp;&nbsp;<input type="submit" value="조회" style="width: 80px;height: 30px;font-weight: bold; font-size: medium">
 
             </fieldset>
-
         </form>
-
-
     </div>
 
 
@@ -58,34 +55,17 @@
         </thead>
 
 
-        <tbody id="t_body">
+        <tbody id="t_body" th:each = "prod : ${list}">
         <!--- 데이타 출력 부분 -->
         <tr class="tr_td">
-            <td>Chk</td>
-            <th>고객ID</th>
-            <td>고객명</td>
-            <td>이메일</td>
-            <td>권한</td>
-            <td>등록일</td>
+            <td><input type="checkbox" name="chkMemberNo" th:value="${prod.getNo()}"></td>
+            <th th:text="${prod.getCust_id()}">고객ID</th>
+            <td th:text="${prod.getName()}">고객명</td>
+            <td th:text="${prod.getEmail()}">이메일</td>
+            <td th:text="${prod.getRole()}">권한</td>
+            <td th:text="${prod.getReg_day()}">등록일</td>
         </tr>
 
-        <tr class="tr_td">
-            <td>Chk</td>
-            <th>고객ID</th>
-            <td>고객명</td>
-            <td>이메일</td>
-            <td>권한</td>
-            <td>등록일</td>
-        </tr>
-
-        <tr class="tr_td">
-            <td>Chk</td>
-            <th>고객ID</th>
-            <td>고객명</td>
-            <td>이메일</td>
-            <td>권한</td>
-            <td>등록일</td>
-        </tr>
         </tbody>
     </table>
 </div>
