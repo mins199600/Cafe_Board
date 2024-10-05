@@ -17,7 +17,7 @@
         AND reg_day >= DATE_FORMAT( #{strStartDate},'%Y%m%d')
         AND reg_day &lt; DATE_ADD(DATE_FORMAT(#{strEndDate},'%Y%m%d'), INTERVAL +1 DAY)
         <if test="strName != 'ALL'">
-            AND name like CONCAT(#{strName},'%')
+            AND name like CONCAT('%',#{strName},'%')
         </if>
     </select>
 </mapper>

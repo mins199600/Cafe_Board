@@ -28,7 +28,7 @@
         and reg_day >= date_format( #{strStartDate}, '%Y,%m,%d')
         and reg_day &lt; date_add(date_format(#{strEndDate}, '%Y,%m,%d'), interval +1 day)
             <if test="strCoffee != 'ALL'">
-                and coffee like concat(#{strCoffee},'%')
+                and coffee like concat('%',#{strCoffee},'%')
             </if>
             <if test="strKind != 'ALL'">
             and kind = #{strKind}
