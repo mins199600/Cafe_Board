@@ -1,13 +1,14 @@
 package hello.sailing.v2.service;
 import hello.sailing.v2.dao.MenuDaoV2;
 import hello.sailing.v2.vo.Coffee_menu;
-import hello.sailing.v2.vo.Order_list;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
-
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Map;
 
@@ -77,11 +78,20 @@ public class MenuSvcV2 {
         int int2 = menuDaoV2.doUpdatePriceOne(chkList, strPrice);
         return int2;
     }
-    @Transactional
-    public int doUpdateInsert(List<String> chkList, String strPrice) {
+    @Transactional(rollbackFor = Exception.class)
+    public int doUpdateInsert(List<String> chkList, String strPrice) throws FileNotFoundException {
         log.info("=======================================");
-        int int1 = menuDaoV2.doInsertLogOne(chkList, strPrice);
         int int2 = menuDaoV2.doUpdatePriceOne(chkList, strPrice);
+        //checked 예외 발생 지점
+        /*File file = new File("not existing file.txt");
+        FileInputStream stream = new FileInputStream(file);*/
+
+        //unchecked Exception -> ArithemticExcption이 발생
+        int numerator = 1;
+        int denominator = 0;
+        int result = numerator / denominator;
+
+        int int1 = menuDaoV2.doInsertLogOne(chkList, strPrice);
         return int1;
     }
 }

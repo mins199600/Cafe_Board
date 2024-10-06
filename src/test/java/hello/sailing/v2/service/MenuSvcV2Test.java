@@ -20,7 +20,12 @@ class MenuSvcV2Test {
         List<String> chkList = new ArrayList<>();
         chkList.add("19");
         chkList.add("20");
-        String strPrice = "2222";
-        menuSvcV2.doUpdateInsert(chkList, strPrice);
+
+        String strPrice = "43838384";
+        try {
+            menuSvcV2.doUpdateInsert(chkList, strPrice);
+        }catch (Exception e) {
+            System.out.println("===========Test===========" + e.getMessage());
+        }
     }
 }
