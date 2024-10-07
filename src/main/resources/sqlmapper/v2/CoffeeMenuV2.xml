@@ -98,4 +98,10 @@
         </foreach>
     </insert>
 
+    <!--boot 로그 입력-->
+    <insert id="doBootLog">
+        insert into boot_log (class)
+        values( #{strClass} )
+    </insert>
+
 </mapper>

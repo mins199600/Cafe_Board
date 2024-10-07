@@ -33,4 +33,6 @@ public interface MenuDaoV2 {
     int doInsertLogOne(List<String> chkList, String strPrice);
 
     int doUpdatePriceOne(List<String> chkList, String strPrice);
+
+    int doBootLog(String strClass);
 }
