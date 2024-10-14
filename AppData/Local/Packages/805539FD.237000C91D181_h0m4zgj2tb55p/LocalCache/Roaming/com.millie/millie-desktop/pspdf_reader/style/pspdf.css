@@ -1,0 +1,17 @@
+.PSPDFKit-Scroll {
+  height: 100%;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.PSPDFKit-Scroll::-webkit-scrollbar {
+  display: none;
+}
+.PSPDFKit-Scroll .PSPDFKit-Page:focus {
+  outline: none;
+  border: none;
+  pointer-events: none;
+}
+.PSPDFKit-Viewport .PSPDFKit-Spread .PSPDFKit-Page {
+  box-shadow: none;
+}

@@ -238,6 +238,14 @@
   <component name="ProjectDependenciesModelState">
     <option name="PROJECT_STATE" value="[{&quot;type&quot;:&quot;maven&quot;,&quot;namespace&quot;:&quot;org.bgee.log4jdbc-log4j2&quot;,&quot;name&quot;:&quot;log4jdbc-log4j2-jdbc4.1&quot;,&quot;version&quot;:{&quot;value&quot;:&quot;1.16&quot;,&quot;releaseDate&quot;:null},&quot;qualifiers&quot;:null,&quot;subpath&quot;:null,&quot;releaseDate&quot;:null,&quot;coordinates&quot;:&quot;maven:org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16:null:null&quot;,&quot;humanReadableCoordinates&quot;:&quot;maven:org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16&quot;,&quot;searchCoordinates&quot;:&quot;org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16&quot;,&quot;searchKey&quot;:&quot;dc0978eb65df9260f8f58301909f328ee6337d0785aa98a35344296e72dc13bc&quot;},{&quot;type&quot;:&quot;maven&quot;,&quot;namespace&quot;:&quot;org.mybatis.spring.boot&quot;,&quot;name&quot;:&quot;mybatis-spring-boot-starter&quot;,&quot;version&quot;:{&quot;value&quot;:&quot;2.3.0&quot;,&quot;releaseDate&quot;:null},&quot;qualifiers&quot;:null,&quot;subpath&quot;:null,&quot;releaseDate&quot;:null,&quot;coordinates&quot;:&quot;maven:org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0:null:null&quot;,&quot;humanReadableCoordinates&quot;:&quot;maven:org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0&quot;,&quot;searchCoordinates&quot;:&quot;org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0&quot;,&quot;searchKey&quot;:&quot;ad3353720194b88896682c627ecc2358c1343faa723d3c6a453a70bb538142ce&quot;}]" />
   </component>
+  <component name="VcsLogIndexCollector">
+    <option name="indexTime" value="132" />
+    <option name="indexTimeByRoot">
+      <map>
+        <entry key="$USER_HOME$" value="132" />
+      </map>
+    </option>
+  </component>
   <component name="sourceFolderManager">
     <sourceFolders>
       <SourceFolderModelState>
